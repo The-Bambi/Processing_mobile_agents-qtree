@@ -1,0 +1,48 @@
+//currently:
+//change ArrayLists to LinkedLists where it makes sense. Speeds things up alot.
+
+//for future:
+//add some way to get rid of reds
+//take care of POWER - not working, AT ALL.
+//add interface - opening screen, game overs.
+//health bar that decreases over time and increases when eating green
+
+VehicleList vehicles;
+Interface interface;
+
+QTree tree;
+
+Circle area;
+
+ArrayList<TestPoint> test_list;
+ArrayList<TestPoint> highlights;
+
+TestPoint dot;
+
+void setup() {
+	noCursor();
+	textSize(30);
+	size(window.innerWidth, window.innerHeight);
+	//size(600,600);
+	vehicles = new VehicleList(100);
+	interface = new Interface();
+	
+	test_list = new ArrayList<TestPoint>(20);
+
+}
+
+void draw() {
+	
+	background(51);
+	fill(200,200,200,90);
+	strokeWeight(1);
+	stroke(0);
+	ellipseMode(CENTER);
+	ellipse(mouseX,mouseY,25,25);
+	
+	fill(255);
+	stroke(0);
+	
+	interface.show();
+	vehicles.update(interface);
+}
